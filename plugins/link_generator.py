@@ -11,7 +11,11 @@ async def batch(client: Client, message: Message):
     while True:
         try:
             first_message = await client.ask(text = "Forward the First Message from DB Channel (with Quotes)..\n\nor Send the DB Channel Post Link", chat_id = message.from_user.id, filters=(filters.forwarded | (filters.text & ~filters.forwarded)), timeout=60)
-        except:
+        
+        except Exception as e:
+            await message.reply_text(
+                f"❌ Batch Error: {type(e).__name__}: {e}"
+            )
             return
         f_msg_id = await get_message_id(client, first_message)
         if f_msg_id:
