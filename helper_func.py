@@ -63,7 +63,7 @@ async def get_messages(client, message_ids):
 
 async def get_message_id(client, message):
     if message.forward_from_chat:
-        if message.forward_from_chat.id == client.db_channel.id:
+        if message.forward_from_chat.id == int(client.db_channel.id):
             return message.forward_from_message_id
         else:
             return 0
