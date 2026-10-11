@@ -44,7 +44,7 @@ class Bot(Client):
         
         if FORCE_SUB_CHANNEL:
             try:
-                chat = await self.get_chat(FORCE_SUB_CHANNEL)
+                chat = await self.get_chat(int(str(FORCE_SUB_CHANNEL).strip()))
                 link = chat.invite_link
 
                 if not link:
