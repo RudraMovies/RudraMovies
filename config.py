@@ -87,3 +87,9 @@ logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
+
+# Premium membership / payment settings
+UPI_ID = os.environ.get("UPI_ID", "suryabm18@axl")
+UPI_QR_IMAGE = os.environ.get("UPI_QR_IMAGE", "")
+ADMIN_CONTACT = os.environ.get("ADMIN_CONTACT", "RMdeveloper4")
+TUTORIAL_URL = os.environ.get("TUTORIAL_URL", "https://t.me/RudraMovies4")
