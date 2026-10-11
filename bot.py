@@ -45,7 +45,7 @@ class Bot(Client):
             bot_token=TG_BOT_TOKEN
         )
         self.LOGGER = LOGGER
-
+        self.db_channel = CHANNEL_ID
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
