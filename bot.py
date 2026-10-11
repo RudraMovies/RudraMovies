@@ -1,5 +1,5 @@
 #(©)Codexbotz
-
+from pyrogram import utils
 from aiohttp import web
 from plugins import web_server
 
@@ -20,7 +20,18 @@ ascii_art = """
 ╚█████╔╝╚█████╔╝██████╔╝███████╗██╔╝╚██╗██████╦╝╚█████╔╝░░░██║░░░███████╗
 ░╚════╝░░╚════╝░╚═════╝░╚══════╝╚═╝░░╚═╝╚═════╝░░╚════╝░░░░╚═╝░░░╚══════╝
 """
+def fixed_get_peer_type(peer_id: int) -> str:
+    peer_id_str = str(peer_id)
 
+    if not peer_id_str.startswith("-"):
+        return "user"
+    elif peer_id_str.startswith("-100"):
+        return "channel"
+    else:
+        return "chat"
+
+
+utils.get_peer_type = fixed_get_peer_type
 class Bot(Client):
     def __init__(self):
         super().__init__(
