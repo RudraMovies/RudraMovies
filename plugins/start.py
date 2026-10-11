@@ -117,10 +117,9 @@ async def start_command(client: Client, message: Message):
     else:
         reply_markup = InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
-                ]
+                [InlineKeyboardButton("📥 DOWNLOAD — FREE", callback_data="download_free")],
+                [InlineKeyboardButton("👑 PREMIUM MEMBERSHIP", callback_data="premium_menu")],
+                [InlineKeyboardButton("📚 DOWNLOAD TUTORIAL", url="https://t.me/RudraMovies4")],
             ]
         )
         if START_PIC:  # Check if START_PIC has a value
