@@ -38,6 +38,7 @@ class Bot(Client):
     async def start(self):
         await super().start()
         usr_bot_me = await self.get_me()
+        self.LOGGER(__name__).info(f"Running bot username: @{usr_bot_me.username}")
         self.uptime = datetime.now()
 
         
